@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Win32::Console#PeekInput
+is_singleton: false
+name: PeekInput
+params: ()
+visibility: public

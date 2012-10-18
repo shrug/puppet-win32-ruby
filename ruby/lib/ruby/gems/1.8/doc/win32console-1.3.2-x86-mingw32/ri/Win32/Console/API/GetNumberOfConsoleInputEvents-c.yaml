@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Win32::Console::API::GetNumberOfConsoleInputEvents
+is_singleton: true
+name: GetNumberOfConsoleInputEvents
+params: ( hConsoleInput )
+visibility: public

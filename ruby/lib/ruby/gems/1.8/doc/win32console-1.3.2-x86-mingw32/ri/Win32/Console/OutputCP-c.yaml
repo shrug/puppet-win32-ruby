@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Win32::Console::OutputCP
+is_singleton: true
+name: OutputCP
+params: (codepage=nil)
+visibility: public

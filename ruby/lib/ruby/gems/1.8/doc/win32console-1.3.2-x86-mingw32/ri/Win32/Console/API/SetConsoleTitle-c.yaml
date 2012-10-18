@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Win32::Console::API::SetConsoleTitle
+is_singleton: true
+name: SetConsoleTitle
+params: ( lpConsoleTitle )
+visibility: public

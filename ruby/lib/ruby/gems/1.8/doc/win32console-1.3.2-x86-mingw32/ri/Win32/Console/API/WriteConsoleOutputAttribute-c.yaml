@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Win32::Console::API::WriteConsoleOutputAttribute
+is_singleton: true
+name: WriteConsoleOutputAttribute
+params: ( hConsoleOutput, lpAttribute, col, row )
+visibility: public

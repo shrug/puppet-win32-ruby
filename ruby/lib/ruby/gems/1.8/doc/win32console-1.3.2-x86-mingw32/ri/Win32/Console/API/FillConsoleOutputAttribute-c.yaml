@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Win32::Console::API::FillConsoleOutputAttribute
+is_singleton: true
+name: FillConsoleOutputAttribute
+params: ( hConsoleOutput, wAttribute, nLength, col, row )
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Win32::Console#Write
+is_singleton: false
+name: Write
+params: (s)
+visibility: public

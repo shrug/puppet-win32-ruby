@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Win32::Console#WriteAttr
+is_singleton: false
+name: WriteAttr
+params: (attr, col, row)
+visibility: public
