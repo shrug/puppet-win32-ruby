@@ -156,7 +156,7 @@ module RbConfig
   CONFIG["build_vendor"] = "pc"
   CONFIG["build_cpu"] = "i686"
   CONFIG["build"] = "i686-pc-mingw32"
-  CONFIG["RUBY_RELEASE_DATE"] = "2013-11-22"
+  CONFIG["RUBY_RELEASE_DATE"] = "2014-01-09"
   CONFIG["RUBY_PROGRAM_VERSION"] = "1.9.3"
   CONFIG["BASERUBY"] = "ruby"
   CONFIG["target_alias"] = ""
