@@ -13,7 +13,7 @@ module RbConfig
   CONFIG["MAJOR"] = "1"
   CONFIG["MINOR"] = "9"
   CONFIG["TEENY"] = "1"
-  CONFIG["PATCHLEVEL"] = "448"
+  CONFIG["PATCHLEVEL"] = "484"
   CONFIG["INSTALL"] = '/usr/bin/install -c'
   CONFIG["EXEEXT"] = ".exe"
   CONFIG["prefix"] = (TOPDIR || DESTDIR + "")
@@ -156,7 +156,7 @@ module RbConfig
   CONFIG["build_vendor"] = "pc"
   CONFIG["build_cpu"] = "i686"
   CONFIG["build"] = "i686-pc-mingw32"
-  CONFIG["RUBY_RELEASE_DATE"] = "2013-06-27"
+  CONFIG["RUBY_RELEASE_DATE"] = "2013-11-22"
   CONFIG["RUBY_PROGRAM_VERSION"] = "1.9.3"
   CONFIG["BASERUBY"] = "ruby"
   CONFIG["target_alias"] = ""
