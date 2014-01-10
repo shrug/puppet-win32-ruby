@@ -14,7 +14,7 @@ module RbConfig
   CONFIG["MINOR"] = "9"
   CONFIG["TEENY"] = "1"
   CONFIG["PATCHLEVEL"] = "484"
-  CONFIG["INSTALL"] = ''
+  CONFIG["INSTALL"] = '/usr/bin/install -c'
   CONFIG["EXEEXT"] = ".exe"
   CONFIG["prefix"] = (TOPDIR || DESTDIR + "")
   CONFIG["ruby_install_name"] = "ruby"
@@ -110,8 +110,8 @@ module RbConfig
   CONFIG["PKG_CONFIG"] = ""
   CONFIG["DOXYGEN"] = ""
   CONFIG["DOT"] = ""
-  CONFIG["MAKEDIRS"] = "/c/Users/jenkins/workspace/WindowsRubyBuilds/RUBYVER/1.9.3-p484/label/win-build/sandbox/devkit/bin/mkdir -p"
-  CONFIG["MKDIR_P"] = "/c/Users/jenkins/workspace/WindowsRubyBuilds/RUBYVER/1.9.3-p484/label/win-build/sandbox/devkit/bin/mkdir -p"
+  CONFIG["MAKEDIRS"] = "/usr/bin/mkdir -p"
+  CONFIG["MKDIR_P"] = "/usr/bin/mkdir -p"
   CONFIG["INSTALL_DATA"] = "$(INSTALL) -m 644"
   CONFIG["INSTALL_SCRIPT"] = "$(INSTALL)"
   CONFIG["INSTALL_PROGRAM"] = "$(INSTALL)"
@@ -132,8 +132,8 @@ module RbConfig
   CONFIG["CPPOUTFILE"] = "-o conftest.i"
   CONFIG["GNU_LD"] = "yes"
   CONFIG["GCC"] = "yes"
-  CONFIG["EGREP"] = "/c/Users/jenkins/workspace/WindowsRubyBuilds/RUBYVER/1.9.3-p484/label/win-build/sandbox/devkit/bin/grep -E"
-  CONFIG["GREP"] = "/c/Users/jenkins/workspace/WindowsRubyBuilds/RUBYVER/1.9.3-p484/label/win-build/sandbox/devkit/bin/grep"
+  CONFIG["EGREP"] = "/usr/bin/grep -E"
+  CONFIG["GREP"] = "/usr/bin/grep"
   CONFIG["CPP"] = "$(CC) -E"
   CONFIG["CXXFLAGS"] = "$(cxxflags)"
   CONFIG["CXX"] = "g++"
