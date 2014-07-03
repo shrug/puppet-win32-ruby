@@ -1,7 +1,7 @@
-require File.join(File.dirname(__FILE__), 'windows', 'helper')
-require File.join(File.dirname(__FILE__), 'windows', 'constants')
-require File.join(File.dirname(__FILE__), 'windows', 'structs')
-require File.join(File.dirname(__FILE__), 'windows', 'functions')
+require_relative 'windows/helper'
+require_relative 'windows/constants'
+require_relative 'windows/structs'
+require_relative 'windows/functions'
 
 # The Win32 module serves as a namespace only.
 module Win32
@@ -17,7 +17,7 @@ module Win32
     extend Windows::Functions
 
     # The version of the win32-service library
-    VERSION = '0.8.4'
+    VERSION = '0.8.5'
 
     # SCM security and access rights
 
@@ -81,7 +81,7 @@ module Win32
     FILE_SYSTEM_DRIVER  = SERVICE_FILE_SYSTEM_DRIVER
 
     # Service that runs in its own process
-    WIN32_OWN_PROCESS   = SERVICE_WIN32_OWN_PROCESS
+    WIN32_OWN_PROCESS = SERVICE_WIN32_OWN_PROCESS
 
     # Service that shares a process with one or more other services.
     WIN32_SHARE_PROCESS = SERVICE_WIN32_SHARE_PROCESS
@@ -260,8 +260,7 @@ module Win32
     # * host                   => nil (optional)
     # * display_name           => service_name
     # * desired_access         => Service::ALL_ACCESS
-    # * service_type           => Service::WIN32_OWN_PROCESS |
-    #                             Service::INTERACTIVE_PROCESS
+    # * service_type           => Service::WIN32_OWN_PROCESS
     # * start_type             => Service::DEMAND_START
     # * error_control          => Service::ERROR_NORMAL
     # * binary_path_name       => nil
@@ -306,8 +305,7 @@ module Win32
       opts = {
         'display_name'           => nil,
         'desired_access'         => SERVICE_ALL_ACCESS,
-        'service_type'           => SERVICE_WIN32_OWN_PROCESS |
-                                    SERVICE_INTERACTIVE_PROCESS,
+        'service_type'           => SERVICE_WIN32_OWN_PROCESS,
         'start_type'             => SERVICE_DEMAND_START,
         'error_control'          => SERVICE_ERROR_NORMAL,
         'binary_path_name'       => nil,
@@ -1077,12 +1075,18 @@ module Win32
 
               deps = config_struct[:lpDependencies].read_array_of_null_separated_strings
 
-              buf = get_config2_info(handle_scs, SERVICE_CONFIG_DESCRIPTION)
+              begin
+                buf = get_config2_info(handle_scs, SERVICE_CONFIG_DESCRIPTION)
 
-              if buf.is_a?(Fixnum) || buf.read_pointer.null?
+                if buf.is_a?(Fixnum) || buf.read_pointer.null?
+                  description = ''
+                else
+                  description = buf.read_pointer.read_string
+                end
+              rescue
+                # While being annoying, not being able to get a description is not exceptional
+                warn "WARNING: Failed to retreive description for the #{service_name} service."
                 description = ''
-              else
-                description = buf.read_pointer.read_string
               end
 
               delayed_start_buf = get_config2_info(handle_scs, SERVICE_CONFIG_DELAYED_AUTO_START_INFO)
@@ -1334,7 +1338,7 @@ module Win32
         FFI.raise_windows_error('QueryServiceConfig', error)
       end
 
-      bytes_needed = FFI::MemoryPointer.new(:ulong)
+      bytes_needed.clear
 
       # Second attempt at QueryServiceConfig gets the actual info
       begin
@@ -1369,14 +1373,14 @@ module Win32
       #
       if !bool && err_num == ERROR_INSUFFICIENT_BUFFER
         config2_buf = FFI::MemoryPointer.new(:char, bytes_needed.read_ulong)
-      elsif err_num == ERROR_FILE_NOT_FOUND
+      elsif [ERROR_FILE_NOT_FOUND, ERROR_RESOURCE_TYPE_NOT_FOUND, ERROR_RESOURCE_NAME_NOT_FOUND].include?(err_num)
         return err_num
       else
         CloseServiceHandle(handle)
         FFI.raise_windows_error('QueryServiceConfig2', err_num)
       end
 
-      bytes_needed = FFI::MemoryPointer.new(:ulong)
+      bytes_needed.clear
 
       # Second attempt at QueryServiceConfig2 gets the actual info
       begin
