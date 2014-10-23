@@ -109,7 +109,7 @@
 #define HAVE_INT64_T 1
 #define SIZEOF_INT64_T 8
 #define HAVE_UINT64_T 1
-#define SIZEOF_UINT64_T 8
+#define SIZEOF_UINT64_T 0
 #define HAVE_INTPTR_T 1
 #define SIZEOF_INTPTR_T 4
 #define HAVE_UINTPTR_T 1
