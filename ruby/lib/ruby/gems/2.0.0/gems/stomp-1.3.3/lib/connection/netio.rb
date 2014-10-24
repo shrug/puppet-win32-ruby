@@ -171,7 +171,7 @@ module Stomp
           end
         end
         _wire_write(used_socket,"")
-        used_socket.write body
+        used_socket.write body unless body == ''
         used_socket.write "\0"
         used_socket.flush if autoflush
 
@@ -306,6 +306,10 @@ module Stomp
         lp = log_params.clone
         lp[:ssl_exception] = ex
         slog(:on_ssl_connectfail, lp)
+        if ssl
+          # shut down the TCP socket - we just failed to do the SSL handshake in time
+          ssl.close
+        end
         #
         raise # Reraise
       end

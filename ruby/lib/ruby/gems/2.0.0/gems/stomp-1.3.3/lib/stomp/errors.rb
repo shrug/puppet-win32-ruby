@@ -71,6 +71,23 @@ module Stomp
       end
     end
 
+    # ProtocolErrorEmptyHeaderKey is raised if:
+    # * Any header key is empty ("")
+    class ProtocolErrorEmptyHeaderKey < RuntimeError
+      def message
+        "Empty header key"
+      end
+    end
+
+    # ProtocolErrorEmptyHeaderValue is raised if:
+    # * Any header value is empty ("") *and*
+    # * Connection protocol level == 1.0
+    class ProtocolErrorEmptyHeaderValue < RuntimeError
+      def message
+        "Empty header value, STOMP 1.0"
+      end
+    end
+
     # ProtocolError11p - base class of 1.1 CONNECT errors
     class ProtocolError11p < RuntimeError
       def message
