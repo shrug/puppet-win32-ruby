@@ -1,6 +1,6 @@
 @ECHO OFF
 IF NOT "%~f0" == "~f0" GOTO :WinNT
-ECHO.This version of Ruby has not been built with support for Windows 95/98/Me.
+@"ruby.exe" "C:/ruby-2.1.5-i386-mingw32-base/bin/stompcat" %1 %2 %3 %4 %5 %6 %7 %8 %9
 GOTO :EOF
 :WinNT
-@"%~dp0ruby.exe" "%~dpn0" %*
+@"ruby.exe" "%~dpn0" %*
