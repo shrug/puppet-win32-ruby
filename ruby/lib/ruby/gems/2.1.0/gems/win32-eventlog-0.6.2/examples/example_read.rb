@@ -17,13 +17,10 @@ sleep 1
 
 el = EventLog.new("Application")
 el.read{ |log|
-  #p log.description if !log.description.empty?
-  p log
+   p log
 }
-#p el.read_last_event
 el.close
 
-=begin
 EventLog.read("Application"){ |log|
    p log
    puts
@@ -85,4 +82,3 @@ puts "Finished reading backup file"
 e4.close
 
 File.delete(backup_file)
-=end
