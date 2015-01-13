@@ -5,7 +5,8 @@ begin
 rescue LoadError
 end
 
-warn "DL is deprecated, please use Fiddle"
+# http://stackoverflow.com/questions/15590450/ruby-2-0-0p0-irb-error-dl-is-deprecated-please-use-fiddle
+# warn "DL is deprecated, please use Fiddle"
 
 module DL
   # Returns true if DL is using Fiddle, the libffi wrapper.
