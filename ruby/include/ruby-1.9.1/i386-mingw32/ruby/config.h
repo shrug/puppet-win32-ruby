@@ -71,7 +71,7 @@
 #define FUNC_FASTCALL(x) __attribute__ ((fastcall)) x
 #define RUBY_ALIAS_FUNCTION_TYPE(type, prot, name, args) type prot __attribute__((alias(#name)));
 #define RUBY_ALIAS_FUNCTION_VOID(prot, name, args) RUBY_ALIAS_FUNCTION_TYPE(void, prot, name, args)
-#define HAVE_GCC_ATOMIC_BUILTINS 1
+#define HAVE_GCC_SYNC_BUILTINS 1
 #define RUBY_FUNC_EXPORTED __attribute__ ((visibility("default"))) extern
 #define HAVE_DECL_SYS_NERR 1
 #define HAVE_DIRENT_H 1
