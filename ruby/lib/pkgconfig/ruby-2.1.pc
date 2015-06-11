@@ -1,6 +1,6 @@
 arch=x64-mingw32
 sitearch=x64-msvcrt
-prefix=C:/Users/jenkins/workspace/WindowsRubyBuilds/RUBYVER/2.1.6-x64/label/win-build/sandbox/ruby21_mingw
+prefix=C:/jenkins/workspace/WindowsRubyBuilds/RUBYVER/2.1.6-x64/label/win-build/sandbox/ruby21_mingw
 exec_prefix=${prefix}
 bindir=${exec_prefix}/bin
 libdir=${exec_prefix}/lib
