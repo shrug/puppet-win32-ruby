@@ -3,8 +3,8 @@
 # changes made to this file will be lost the next time ruby is built.
 
 module RbConfig
-  RUBY_VERSION == "2.1.6" or
-    raise "ruby lib version (2.1.6) doesn't match executable version (#{RUBY_VERSION})"
+  RUBY_VERSION == "2.1.7" or
+    raise "ruby lib version (2.1.7) doesn't match executable version (#{RUBY_VERSION})"
 
   TOPDIR = File.dirname(__FILE__).chomp!("/lib/ruby/2.1.0/x64-mingw32")
   DESTDIR = TOPDIR && TOPDIR[/\A[a-z]:/i] || '' unless defined? DESTDIR
@@ -13,7 +13,7 @@ module RbConfig
   CONFIG["MAJOR"] = "2"
   CONFIG["MINOR"] = "1"
   CONFIG["TEENY"] = "0"
-  CONFIG["PATCHLEVEL"] = "336"
+  CONFIG["PATCHLEVEL"] = "400"
   CONFIG["INSTALL"] = '/usr/bin/install -c'
   CONFIG["EXEEXT"] = ".exe"
   CONFIG["prefix"] = (TOPDIR || DESTDIR + "")
@@ -192,8 +192,8 @@ module RbConfig
   CONFIG["build_vendor"] = "pc"
   CONFIG["build_cpu"] = "i686"
   CONFIG["build"] = "i686-pc-mingw32"
-  CONFIG["RUBY_RELEASE_DATE"] = "2015-04-13"
-  CONFIG["RUBY_PROGRAM_VERSION"] = "2.1.6"
+  CONFIG["RUBY_RELEASE_DATE"] = "2015-08-18"
+  CONFIG["RUBY_PROGRAM_VERSION"] = "2.1.7"
   CONFIG["target_alias"] = ""
   CONFIG["host_alias"] = "x86_64-w64-mingw32"
   CONFIG["build_alias"] = ""
